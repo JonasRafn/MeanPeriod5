@@ -82,7 +82,7 @@ Refer to [Firebase Slack App]
 In AngularJS you have to create a connection to the client, and everytime a message is sent you need to add that to a local scope variable and call ``` $scope.$apply ``` to make sure AngularJS updates the scope.  
 See [SimpleChat]
 
-Where as in Firebase you only need a few lines of code, and that small app is even scalable from the beginning. 
+Where as in Firebase you only need a few lines of code to do the same, and that small app is even scalable from the start. 
 ```javascript
 var ref = new Firebase("https://xxx.firebaseio.com/");
 var messagesRef = ref.child('messages');
