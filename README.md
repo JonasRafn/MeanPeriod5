@@ -76,7 +76,7 @@ FireBase is not any ordinary DBaaS, it's a real-time scalable backend that provi
 ### Question 10: Explain and demonstrate "three-way data binding" using Firebase and Angular?
 When using AngularJS the scope of our controller and view stay synced creating a 2-way databinding (ng-model). Using firebase as a backend makes it possible to create 3-way databinding. We can bind the datamodel of our AngularJS app and a FireBase location like "https://xxx.firebaseio.com/users", this way whenever the model on FireBase changes the updates are automatically pushed to the front-end and the other way round.
 
-Refer to [Thinkster tutorial]
+Refer to [Firebase Slack App]
 
 ### Question 11: Explain and demonstrate the difference between the simple chat system in your own WebSocket + Node.js backend vs. Firebase?
 In AngularJS you have to create a connection to the client, and everytime a message is sent you need to add that to a local scope variable and call ``` $scope.$apply ``` to make sure AngularJS updates the scope.  
@@ -97,5 +97,5 @@ scope.sendMessage = function() {
 };
 ```
 
-[Thinkster tutorial]: <https://github.com/JonasRafn/FirebaseSlack>
+[Firebase Slack App]: <https://github.com/JonasRafn/FirebaseSlack>
 [SimpleChat]:<https://github.com/JonasRafn/SimpleChatSocket>
