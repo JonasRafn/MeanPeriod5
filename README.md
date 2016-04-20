@@ -97,5 +97,5 @@ scope.sendMessage = function() {
 };
 ```
 
-[Thinkster tutorial]: <https://github.com/JonasRafn>
+[Thinkster tutorial]: <https://github.com/JonasRafn/FirebaseSlack>
 [SimpleChat]:<https://github.com/JonasRafn/SimpleChatSocket>
