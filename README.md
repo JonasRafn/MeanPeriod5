@@ -1,6 +1,10 @@
 # MeanPeriod5
 ### Question 1: Name attributes of HTTP protocol makes it difficult to use for real time systems?
-> To be added...
+The HTTP protocol has some limitations which makes it difficult to use for real time systems. First of all whenever you make a request, say to download html, or an image, a port/socket is opened, data is transferred, and then it is closed.
+
+The opening and closing creates overhead, and for certain applications, especially for real time systems which require real time interactions this just doesn’t work.
+
+Another limitation with HTTP is that it is a “pull” paradigm. The browser will request or pull information from servers, but the server can't push data to the browser when it wants to. This means that browsers will have to poll the server for new information by repeating requests every so often, to see if there is any new data.
 
 
 ### Question 2: Explain polling and long-polling strategies, their pros and cons?
@@ -39,23 +43,59 @@ It brings TCP sockets that we know from Java to the world of web-development, ma
 
 
 ### Question 6: Explain and demonstrate the process of WebSocket communication - From connecting client to server, through sending messages, to closing connection?
-> To be added...
+When a connection through a websocket is opened it all start with a "Handshake" the same principle as when using token authentication. After the handshake the connection is now open, and the client can sends messages to the server and the other way around, as many times as needed. When the transactions is over, either the client or the server closes the connection.
+
+![](https://www.pubnub.com/static/images/get-started/websockets_guides.png)
 
 
 ### Question 7: What's the advantage of using libraries like Socket.IO, Sock.JS, WS, over pure WebSocket libraries in the backend and standard APIs on frontend? Which problems do they solve?
-> To be added...
+* Easier to use, maintained
+* Crossbrowser compatability is already developed for it
+* Fallbacks to other technologies if client browser is not compatible
 
 
 ### Question 8: What is Backend as a Service, Database as a Service, why would you consider using Firebase in your projects?
-> To be added...
+Backend as a Service (BaaS), is cloud based infrastructure for mobile and web apps. Its simply cloud computing for developers to make easy scalable applications for mobile and web.  
+
+DataBase as a Service (DBaaS) is a cloud based database approach, to create scalable and felxible data storage in the cloud. 
+
+FireBase is not any ordinary DBaaS, it's a real-time scalable backend that provides the tools to quickly build applications for millions of users. 
 
 
 ### Question 9: Explain the pros & cons of using a Backend as a Service Provider like Firebase?
-> To be added...
+#### pro's 
+* Scalable
+* Flexible
+* Easy to use
+* Possibility for Authentication
+* Possibility for hosting
+#### con's
+* Lack of control over network performance issues, such as unacceptable latency 
+* "Pay per view", pay for the bandwidth you use
 
-### Question 10: Explain and demonstrate “three-way data binding” using Firebase and Angular?
-> To be added...
+### Question 10: Explain and demonstrate "three-way data binding" using Firebase and Angular?
+When using AngularJS the scope of our controller and view stay synced creating a 2-way databinding (ng-model). Using firebase as a backend makes it possible to create 3-way databinding. We can bind the datamodel of our AngularJS app and a FireBase location like "https://xxx.firebaseio.com/users", this way whenever the model on FireBase changes the updates are automatically pushed to the front-end and the other way round.
+
+Refer to [Thinkster tutorial]
 
 ### Question 11: Explain and demonstrate the difference between the simple chat system in your own WebSocket + Node.js backend vs. Firebase?
-> To be added...
+In AngularJS you have to create a connection to the client, and everytime a message is sent you need to add that to a local scope variable and call ``` $scope.$apply ``` to make sure AngularJS updates the scope.  
+See [SimpleChat]
 
+Where as in Firebase you only need a few lines of code, and that small app is even scalable from the beginning. 
+```javascript
+var ref = new Firebase("https://xxx.firebaseio.com/");
+var messagesRef = ref.child('messages');
+
+scope.messages = $firebaseArray(messagesRef);
+
+scope.sendMessage = function() {
+  scope.messages.$add({
+    body: scope.messageInput
+  });
+  scope.messageInput = '';
+};
+```
+
+[Thinkster tutorial]: <https://github.com/JonasRafn>
+[SimpleChat]:<https://github.com/JonasRafn/SimpleChatSocket>
